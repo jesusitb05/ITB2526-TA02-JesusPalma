@@ -13,7 +13,7 @@ body {
   min-height: 100vh; /* ensure footer can be pushed to bottom */
 }
 
-/* header / navbar: increase thickness and spacing, use elegant font */
+/* header / navbar: increase thickness and spacing, use eleegant font */
 .navbar {
   background: #29418a;
   padding: 24px 28px; /* thicker top area */
