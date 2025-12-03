@@ -13,7 +13,7 @@ body {
   min-height: 100vh; /* ensure footer can be pushed to bottom */
 }
 
-/* header / navbar: increase thickness and spacing, use eleegant font */
+/* header / navbar: increase thickness and spacing, use elegant font */
 .navbar {
   background: #29418a;
   padding: 24px 28px; /* thicker top area */
@@ -77,24 +77,33 @@ body {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   justify-items: center;
-  gap: 80px;              /* increased gap so titles are more separated from the animation */
+  gap: 80px;
   width: 100%;
-  max-width: 1100px;
-  padding: 8px 20px;
+  max-width: none;         /* allow the row to span the full viewport width */
+  padding: 8px 28px;       /* small elegant space from screen edges */
 }
 
 /* new: card wrapper for each project (title + subtext) */
 .proj-card {
   display: flex;
   flex-direction: column;
-  align-items: center;    /* default; overridden per side */
   gap: 8px;
-  max-width: 280px;
+  max-width: 220px;        /* slightly narrower so it doesn't touch too much */
 }
 
-/* side-specific alignment so titles sit near the loader but subtitle stays under the title */
-.proj-card.left  { align-items: flex-end;  text-align: right;  justify-self: end; }
-.proj-card.right { align-items: flex-start; text-align: left;   justify-self: start; }
+/* place cards at the extremes with a small internal offset so they look elegant */
+.proj-card.left {
+  justify-self: start;     /* move to the left edge area */
+  align-items: flex-start; /* left-align title & subtitle */
+  text-align: left;
+  padding-left: 6px;       /* tiny spacing from the very edge */
+}
+.proj-card.right {
+  justify-self: end;       /* move to the right edge area */
+  align-items: flex-end;   /* right-align title & subtitle */
+  text-align: right;
+  padding-right: 6px;      /* tiny spacing from the very edge */
+}
 
 /* project titles: elegant font, large and well-proportioned */
 .proj-title {
@@ -265,11 +274,13 @@ body {
   .projects-row {
     grid-template-columns: 1fr;
     gap: 12px;
+    padding: 12px 20px;    /* keep some horizontal breathing room on small screens */
   }
   .proj-card {
     align-items: center !important;
     text-align: center !important;
     justify-self: center !important;
+    max-width: none;
   }
   .proj-title {
     font-size: 28px;
