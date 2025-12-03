@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Star Wars Style Layout</title>
+<link rel="stylesheet" href="./estilo/style.css" />
+<!-- added: Font Awesome so the .fa-jedi-order icon renders -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<!-- added: elegant display font (Playfair Display); keeps a clean fallback stack -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+<header class="navbar">
+<nav>
+<ul>
+<li><a href="#">INICIO</a></li>
+<li><a href="#">PROYECTO 1</a></li>
+<li><a href="#">PROYECTO 2</a></li>
+<li><a href="#">LISTADO DE TODOS LOS PROYECTOS</a></li>
+<li><a href="#">FORMULARIO</a></li>
+</ul>
+</nav>
+</header>
+
+
+<section class="hyperspace">
+  <!-- updated: left and right are .proj-card with title + subtext below; center keeps loader -->
+  <div class="projects-row">
+    <div class="proj-card left">
+      <div class="proj-title">PROYECTO 1</div>
+      <div class="proj-sub">aqui va el texto a elegir</div>
+    </div>
+
+    <div class="wrapper">
+      <div class="loading-wrapper">
+        <div class="rotor">
+          <div class="circle"></div>
+          <div class="dot"></div>
+          <div class="dot-two"></div>
+        </div>
+        <i class="fab fa-jedi-order icon"></i>
+      </div>
+    </div>
+
+    <div class="proj-card right">
+      <div class="proj-title">PROYECTO 2</div>
+      <div class="proj-sub">aqui va el texto a elegir</div>
+    </div>
+  </div>
+
+  <!-- removed the single central .proj-desc; each side now has its own .proj-sub -->
+</section>
+
+
+<footer class="footer">
+<div class="footer-box">
+<p>© 2025 CRISTIAN OJEDA, JESUS PALMA — TODOS LOS DERECHOS RESERVADOS — TWITTER | FACEBOOK | INSTAGRAM</p>
+</div>
+</footer>
+
+
+</body>
+</html>
