@@ -88,28 +88,28 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-width: 220px;        /* slightly narrower so it doesn't touch too much */
+  max-width: 420px;        /* increased so text can be larger and centered */
 }
 
-/* place cards at the extremes with a small internal offset so they look elegant */
+/* place cards at the extremes but keep their internal contents centered for symmetry */
 .proj-card.left {
-  justify-self: start;     /* move to the left edge area */
-  align-items: flex-start; /* left-align title & subtitle */
-  text-align: left;
-  padding-left: 6px;       /* tiny spacing from the very edge */
+  justify-self: start;     /* keep at left edge area */
+  align-items: center;     /* center contents under the title */
+  text-align: center;
+  padding-left: 12px;      /* small elegant offset from the edge */
 }
 .proj-card.right {
-  justify-self: end;       /* move to the right edge area */
-  align-items: flex-end;   /* right-align title & subtitle */
-  text-align: right;
-  padding-right: 6px;      /* tiny spacing from the very edge */
+  justify-self: end;       /* keep at right edge area */
+  align-items: center;     /* center contents under the title */
+  text-align: center;
+  padding-right: 12px;     /* small elegant offset from the edge */
 }
 
 /* project titles: elegant font, large and well-proportioned */
 .proj-title {
   font-family: "Playfair Display", serif;
   color: #ADD8E6;
-  font-size: 36px;
+  font-size: 48px;         /* larger title so it reads prominently */
   font-weight: 700;
   letter-spacing: 0.6px;
   line-height: 1;
@@ -122,12 +122,13 @@ body {
 /* subtitle under each title */
 .proj-sub {
   font-family: "Playfair Display", serif;
-  color: rgba(173,216,230,0.9);
-  font-size: 16px;
+  color: rgba(173,216,230,0.95);
+  font-size: 18px;         /* slightly larger for readability */
   font-weight: 400;
   letter-spacing: 0.3px;
-  line-height: 1.2;
-  max-width: 260px;
+  line-height: 1.45;
+  max-width: 520px;
+  text-align: center;
 }
 
 /* description line below, centered and elegant */
@@ -289,4 +290,232 @@ body {
     font-size: 16px;
     padding: 0 20px;
   }
+}
+
+/* Project_1 (EcoSwap) page styles moved from Pages/Project_1.html */
+html { scroll-behavior: smooth; }
+
+.project-hero {
+  max-width: 1100px;
+  margin: 48px auto 8px;
+  padding: 36px 24px;
+  text-align: center;
+}
+.project-hero .subtitle {
+  font-family: "Playfair Display", serif;
+  color: #cfeafa;
+  font-size: 18px;
+  margin-top: 10px;
+  line-height: 1.45;
+}
+.project-toc {
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin: 12px 0 28px;
+  flex-wrap:wrap;
+}
+/* project table-of-contents (bigger, more touch-friendly) */
+.project-toc a {
+  color: #ADD8E6;
+  text-decoration: none;
+  padding: 12px 18px;              /* increased padding */
+  border-radius: 999px;
+  background: rgba(173,216,230,0.04);
+  font-family: "Playfair Display", serif;
+  font-weight: 700;                /* slightly bolder for emphasis */
+  font-size: 16px;                 /* larger text */
+  transition: background-color .15s ease, transform .08s ease;
+}
+.project-toc a:hover { transform: translateY(-2px); background: rgba(173,216,230,0.06); }
+.project-section {
+  max-width: 900px;
+  margin: 28px auto;
+  padding: 28px 20px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+}
+.project-section h2 {
+  font-family: "Playfair Display", serif;
+  color: #ADD8E6;
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.project-section p, .project-section ul {
+  font-family: "Playfair Display", serif;
+  color: #cfeafa;
+  font-size:16px;
+  line-height:1.6;
+}
+.project-section ul { list-style: disc; margin-left: 20px; }
+/* compact variant for sections with little content (less whitespace) */
+.project-section.compact {
+  padding: 12px 16px;              /* reduced padding */
+  margin: 12px auto;               /* tighter vertical spacing */
+  max-width: 760px;                /* slightly narrower to avoid huge blanks */
+}
+.project-section.compact h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.project-section.compact p,
+.project-section.compact ul {
+  font-size: 15px;
+  line-height: 1.45;
+}
+.team-list { display:grid; gap:6px; margin-top:6px; }  /* tightened team list spacing */
+
+/* ensure team list items use the same project-section styling (color + font) */
+.project-section .team-list,
+.project-section .team-list > div {
+  font-family: "Playfair Display", serif;
+  color: #cfeafa;    /* match other section text */
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+/* Keep Team section visually consistent but reduce bottom whitespace so content sits higher */
+.project-section#team {
+  /* keep the same top padding as other sections, reduce bottom padding so the section is not overly tall */
+  padding: 28px 20px 12px;
+  margin: 20px auto; /* slight tightening of vertical rhythm */
+  max-width: 900px;
+}
+
+/* tighten the spacing inside the team list and between the list and the following paragraph */
+.project-section#team .team-list {
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.project-section#team p:last-of-type {
+  margin-top: 10px; /* small gap only */
+  margin-bottom: 0;
+}
+
+/* hero CTA (button-like) */
+.hero-cta {
+  display: inline-block;
+  background: linear-gradient(90deg,#2b4aa0 0%, #4661b8 100%);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 6px 18px rgba(33,66,130,0.18);
+}
+.hero-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(33,66,130,0.22); }
+
+/* App design section: side-by-side content + image */
+.design-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 28px;
+  align-items: center;
+}
+.design-text p { margin-bottom: 12px; }
+
+/* image figure styling */
+.design-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(173,216,230,0.06);
+}
+
+/* keep figure aligned visually on narrow content */
+.design-figure { margin: 0; }
+
+/* responsive: stack text above image on narrow screens */
+@media (max-width:920px) {
+  .design-grid { grid-template-columns: 1fr; gap: 18px; }
+  .design-figure { order: 2; }
+  .design-text { order: 1; }
+  .design-figure img { max-width: 92%; margin: 0 auto; }
+}
+
+/* small tweak: ensure project-toc spacing remains tidy when adding another item */
+.project-toc { gap: 14px; }
+
+/* team grid: 2x2 layout, consistent spacing and balanced cards */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 18px 28px;
+  margin-top: 16px;
+}
+
+/* individual team card */
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px;
+  background: rgba(255,255,255,0.01);
+  border-radius: 8px;
+}
+
+/* photo container */
+.team-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(173,216,230,0.02), rgba(173,216,230,0.01));
+  margin-bottom: 10px;
+  border: 1px solid rgba(173,216,230,0.04);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.55);
+}
+
+/* real images sizing */
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* placeholder styling for missing photos (no img src used) */
+.team-photo.empty {
+  border: 2px dashed rgba(173,216,230,0.12);
+  background: rgba(173,216,230,0.01);
+}
+.team-photo.empty .placeholder-text {
+  color: #cfeafa;
+  font-family: "Playfair Display", serif;
+  font-size: 13px;
+  padding: 6px;
+}
+
+/* names and roles */
+.team-name {
+  font-family: "Playfair Display", serif;
+  color: #ADD8E6;
+  font-size: 18px;
+  margin-bottom: 6px;
+  margin-top: 4px;
+  font-weight: 700;
+}
+.team-role {
+  font-family: "Playfair Display", serif;
+  color: #cfeafa;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* responsive: single column on narrow screens */
+@media (max-width:760px) {
+  .team-grid { grid-template-columns: 1fr; gap: 12px; }
+  .team-photo { width: 120px; height: 120px; }
+  .team-name { font-size: 16px; }
+  .team-role { font-size: 14px; }
 }
