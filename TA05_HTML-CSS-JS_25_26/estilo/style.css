@@ -328,12 +328,14 @@ html { scroll-behavior: smooth; }
   transition: background-color .15s ease, transform .08s ease;
 }
 .project-toc a:hover { transform: translateY(-2px); background: rgba(173,216,230,0.06); }
+/* SECCIÓN ACTUALIZADA: .project-section ahora tiene el mismo max-width y padding que .project-hero */
 .project-section {
-  max-width: 900px;
+  max-width: 1100px;            /* igual ancho que el hero para que los bordes queden alineados */
   margin: 28px auto;
-  padding: 28px 20px;
+  padding: 36px 24px;           /* mismo padding horizontal que .project-hero */
   background: rgba(255,255,255,0.02);
   border-radius: 8px;
+  text-align: left; /* añadido: fuerza alineación izquierda para que el contenido quede recto */
 }
 .project-section h2 {
   font-family: "Playfair Display", serif;
@@ -347,7 +349,19 @@ html { scroll-behavior: smooth; }
   font-size:16px;
   line-height:1.6;
 }
-.project-section ul { list-style: disc; margin-left: 20px; }
+.project-section ul {
+  list-style: disc;
+  margin-left: 28px;         /* ajustado: asegura que los bullets y el texto queden alineados */
+  list-style-position: outside;
+}
+
+/* Ajuste: asegurar que la sección team use el mismo ancho que las demás secciones */
+.project-section#team {
+  padding: 28px 24px 12px;     /* conserva menor padding-bottom pero mismo padding horizontal */
+  margin: 20px auto; /* slight tightening of vertical rhythm */
+  max-width: 1100px;           /* igual que .project-section */
+}
+
 /* compact variant for sections with little content (less whitespace) */
 .project-section.compact {
   padding: 12px 16px;              /* reduced padding */
@@ -437,6 +451,27 @@ html { scroll-behavior: smooth; }
   .design-figure { order: 2; }
   .design-text { order: 1; }
   .design-figure img { max-width: 92%; margin: 0 auto; }
+}
+
+/* new: force image-below layout when .stack is added */
+.design-grid.stack {
+  grid-template-columns: 1fr; /* single column: text above, image below */
+  gap: 18px;
+}
+.design-grid.stack .design-text { order: 1; }
+.design-grid.stack .design-figure { order: 2; margin-top: 6px; }
+.design-grid.stack .design-figure img {
+  max-width: 92%;
+  margin: 0 auto;
+  display: block;
+}
+
+/* new: variant to left-align the project hero content when needed */
+.project-hero.left-align {
+  text-align: left;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* small tweak: ensure project-toc spacing remains tidy when adding another item */
