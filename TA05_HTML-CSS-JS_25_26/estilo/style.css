@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: black;
+  background: #000000;
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* ensure footer can be pushed to bottom */
@@ -64,10 +64,9 @@ body {
   flex-direction: column;      /* stack row + description */
   align-items: center;         /* horizontal center */
   justify-content: center;     /* vertical center */
-  background: black;
-  background-image: url('imagenes/hyperspace.png');
-  background-size: cover;
-  background-position: center;
+  background: none;
+  position: relative;
+  z-index: 1;
   padding: 20px 0;
 }
 
@@ -534,6 +533,8 @@ html { scroll-behavior: smooth; }
   height: 100%;
   object-fit: cover;
   display: block;
+  opacity: 1 !important;
+  filter: none !important;
 }
 
 /* placeholder styling for missing photos (no img src used) */
@@ -551,7 +552,7 @@ html { scroll-behavior: smooth; }
 /* names and roles */
 .team-name {
   font-family: "Playfair Display", serif;
-  color: #ADD8E6;
+  color: #ffffff;
   font-size: 18px;
   margin-bottom: 6px;
   margin-top: 4px;
@@ -559,7 +560,7 @@ html { scroll-behavior: smooth; }
 }
 .team-role {
   font-family: "Playfair Display", serif;
-  color: #cfeafa;
+  color: #e6f7ff;
   font-size: 14px;
   line-height: 1.4;
 }
@@ -622,4 +623,81 @@ html { scroll-behavior: smooth; }
     gap: 10px;
     padding: 8px;
   }
+}
+
+/* --- ESTILOS DE LOS EFECTOS AVANZADOS --- */
+
+/* 1. Configuración necesaria para el efecto 3D */
+.proj-card, .team-card {
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* 2. Estilo del Cursor "Jedi" (Luz) */
+#cursor-light {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(41, 100, 255, 0.14) 0%, rgba(0,0,0,0) 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: screen;
+    transition: width 0.3s, height 0.3s, opacity 0.2s;
+    opacity: 0.98;
+}
+
+/* Allow the light to be less intrusive on small screens */
+@media (max-width: 600px) {
+    #cursor-light { width: 260px; height: 260px; opacity: 0.85; }
+}
+
+/* 3. Reveal animation adjustments */
+.hidden { opacity: 0; transform: translateY(40px) scale(0.98); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.visible { opacity: 1; transform: translateY(0) scale(1); }
+
+/* 4. Scrollbar personalizada (Estilo Cyberpunk) */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #4466cc; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #6688ee; }
+
+/* 5. Subtle defaults for proj-card visuals */
+.proj-card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding: 20px; border-radius: 10px; }
+
+/* Ensure team cards are never visually hidden by .hidden (they should be immediately visible) */
+.team-card.hidden {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* also ensure the team-grid itself won't remain hidden */
+.team-grid.hidden {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* --- FONDO DE ESTRELLAS STARFIELD --- */
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10; /* behind everything */
+    background: #000000;
+    display: block;
+}
+
+/* ensure other containers with explicit stacking stay above the canvas */
+.navbar, .footer, .proj-card, .team-grid, .project-section {
+    position: relative;
+    z-index: 2;
 }
