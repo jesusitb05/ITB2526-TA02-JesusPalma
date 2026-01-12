@@ -343,6 +343,23 @@ html { scroll-behavior: smooth; }
   font-size: 28px;
   margin-bottom: 12px;
 }
+
+/* reemplazar la regla anterior .project-section ul por esta para alinear mejor el contenido */
+.project-section ul {
+  list-style: disc;
+  margin: 0;                        /* quitar margen lateral que desplazaba el contenido */
+  padding-inline-start: 20px;       /* control más preciso de la sangría (menor que antes) */
+  list-style-position: outside;
+}
+
+/* Asegurar que párrafos y listas compartan el eje de alineación */
+.project-section p,
+.project-section ul {
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
+
 .project-section p, .project-section ul {
   font-family: "Playfair Display", serif;
   color: #cfeafa;
@@ -553,4 +570,56 @@ html { scroll-behavior: smooth; }
   .team-photo { width: 120px; height: 120px; }
   .team-name { font-size: 16px; }
   .team-role { font-size: 14px; }
+}
+
+/* Lista de proyectos en fila (All_projects) */
+.projects-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;             /* permitir que los items pasen a la siguiente línea */
+  gap: 12px 14px;              /* espacio entre badges (fila y columna) */
+  justify-content: center;     /* centrar la fila */
+  padding: 12px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+/* Reset para los li dentro de la lista */
+.projects-list li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Apariencia de cada "badge" de proyecto */
+.project-badge {
+  display: inline-block;
+  background: rgba(173,216,230,0.04);
+  color: #cfeafa;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: 600;
+  border: 1px solid rgba(173,216,230,0.06);
+  box-shadow: 0 6px 18px rgba(33,66,130,0.06);
+  white-space: nowrap;
+}
+
+/* Hover ligero para indicar interactividad */
+.project-badge:hover {
+  transform: translateY(-3px);
+  transition: transform .12s ease;
+  box-shadow: 0 10px 26px rgba(33,66,130,0.10);
+}
+
+/* Responsive: en pantallas pequeñas reducir tamaño y permitir más ajuste */
+@media (max-width: 520px) {
+  .project-badge {
+    font-size: 15px;
+    padding: 8px 10px;
+  }
+  .projects-list {
+    gap: 10px;
+    padding: 8px;
+  }
 }
